@@ -1,0 +1,45 @@
+SELECT id, title, text FROM blog_post;
+
+SELECT * FROM blog_post;
+
+SELECT DISTINCT title, text FROM blog_post;
+
+SELECT * FROM blog_post WHERE text='naprawde dobrze';
+
+SELECT * FROM blog_post WHERE text='naprawde dobrze' OR NOT text='dddd';
+
+SELECT * FROM blog_post ORDER BY published_date ASC;
+
+INSERT INTO auth_group (name) VALUES ('dodane z SQLite');
+
+SELECT title, text FROM blog_post WHERE published_date IS NULL;
+
+UPDATE blog_post SET title = 'post edytowany z poziomu SQLite', text='tekst posta SQLite' WHERE text='eeee';
+
+DELETE FROM blog_post WHERE text='dddd';
+
+SELECT * FROM blog_post LIMIT 3;
+
+SELECT MAX(id) FROM blog_post;
+
+SELECT SUM(id) FROM blog_post;
+
+SELECT * FROM blog_post WHERE title LIKE '%SQLite%';
+
+SELECT * FROM blog_post WHERE text LIKE 'tekst%';
+
+SELECT * FROM blog_post WHERE id IN (1,5,3);
+
+SELECT * from blog_post WHERE id BETWEEN 5 AND 8;
+
+SELECT django_admin_log.id, django_admin_log.change_message FROM django_admin_log INNER JOIN auth_user ON django_admin_log.user_id=auth_user.id;
+
+SELECT django_admin_log.id, django_admin_log.change_message FROM django_admin_log LEFT JOIN auth_user ON django_admin_log.user_id=auth_user.id;
+
+SELECT id from auth_user UNION SELECT id FROM blog_post;
+
+SELECT COUNT(id), text FROM blog_post GROUP BY text;
+
+SELECT COUNT(id), text FROM blog_post GROUP BY text HAVING COUNT(id)=1;
+
+
